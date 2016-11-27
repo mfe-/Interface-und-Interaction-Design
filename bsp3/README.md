@@ -21,7 +21,7 @@ Der Service soll nicht-kommerziell sein: Der Austausch von Ressourcen erfolgt oh
 Der Service soll nicht generisch sein: Überlegen Sie sich eine konkrete Zielgruppe und Anwendungsdomäne.. [..]
 >Anwendungsdomäne = Hilfssuchende/Hilfsgebende
 
-<h2>Fragen die Abgedeckt werden sollten
+<h2>Fragen die Abgedeckt werden sollten</h2>
 
  Ist es in dem von Ihnen gewählten Anwendungsszenario sinnvoll bzw. notwendig eine Registrierung vorauszusetzen?
  >Ja um Missbrauch zu verhindern und um Protokoll zu führen.
