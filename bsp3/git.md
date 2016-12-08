@@ -15,7 +15,7 @@ Per Konsole:
  9. Gebt git push ein um die Änderungen zum Server zu schicken
  10. Ob die Änderungen übernommen wurden, seht ihr wenn ihr https://github.com/mfe-/Interface-und-Interaction-Design/commits/master aufruft
  
- Per GUI
+Per GUI
  
  1. https://desktop.github.com/ installieren
  2. Mit Github Account einloggen und Repository herunterladen
