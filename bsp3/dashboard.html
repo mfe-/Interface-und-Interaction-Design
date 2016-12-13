@@ -19,6 +19,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
+    <script>
+    $( document ).ready(function() {
+    console.log( "ready!" );
+    $('#Looking_for_Assistance').hide();
+    });
+</script>
 
 </head>
 
@@ -32,8 +38,8 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <a class="navbar-brand" title="Help and Helpers" href="#">H&amp;H</a>
-                <a class="navbar-brand" href="#">Looking for Assistance</a>
-                <a class="navbar-brand" href="#">Offer Assistance</a>
+                <a class="navbar-brand" href="#" onclick="$('#Looking_for_Assistance').show();">Looking for Assistance</a>
+                <a class="navbar-brand" href="#" onclick="$('#Offer_Assistance').show();">Offer Assistance</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling       -->
@@ -54,7 +60,7 @@
                         </ul>
                     </li>
                 </ul> -->
-          
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Logout</a></li>
@@ -64,6 +70,20 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+
+    <!-- requests -->
+
+    <div class="panel panel-default" id="Offer_Assistance">
+        <div class="panel-heading">Current Requests</div>
+        <div class="panel-body">
+            Panel content blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blahblah
+            <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah
+        </div>
+    </div>
+
+
+
+
 </body>
 
 </html>
