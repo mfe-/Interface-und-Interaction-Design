@@ -1,0 +1,34 @@
+/* 
+import font
+useage: font-family: 'Quattrocento Sans', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans');
+
+/* 
+import font 
+useage: font-family: 'PT Sans Caption', sans-serif; 
+*/
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
+html {
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'PT Sans Caption';
+    font-size: 1.4em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 2em;
+}
+
+h2 {
+    font-family: 'Quattrocento Sans';
+    font-size: 1.1em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1.2em;
+}
