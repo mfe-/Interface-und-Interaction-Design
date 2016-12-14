@@ -3,7 +3,7 @@
 
 <head> 
 		<meta charset="utf-8">
-		<title> Bootstrap for InfoDesign </title>
+		<title> SignIn </title>
 		<meta name= "description" conten= "App">
 
 		<!-- Latest compiled and minified CSS -->		
@@ -18,7 +18,6 @@
 		<!-- Css input theme -->
 		<!-- chose the layout of the login theme -->
 		<!-- responsive design: chose the heigt,width in wich the image corrispond to the screen -->
-		<!-- Another immage : http://cdn.appstorm.net/iphone.appstorm.net/files/2010/06/iPhone-4-Abstract-Background-02-620x930.jpg-->
 
 		<style>
 			.login-app{
@@ -57,7 +56,16 @@
   				
 			}
 
-
+		.login-app form .panel-title{
+				font-family: 'PT Sans Caption';
+				font-size: 25px; 
+				font-weight: 400;
+				line-height: 9px;
+  				margin-bottom:30px;
+  				padding-top:10px;
+  				line-height: 100%;
+  				text-align: center;
+			}
 		.login-app .illustration {
   				text-align:center;
   				padding:0 0 120px;
@@ -80,9 +88,21 @@
   				text-align:center;
   				font-size:12px;
 			}	
-
+		.login-app form .control-label {
+  				background:none;
+  				border:none;
+  				box-shadow:none;
+  				outline:none;
+  				
+			}	
 		</style>
-<!-- DA FARE : sistemare i colori, sfondo e l´icona che al moneto non e´collegata !!!-->
+		<script>
+        	$( document ).ready(function() {
+           	 $('#signIn').show();
+           	 $('#forgot').hide();
+       		 });
+    		</script>
+<!-- DA FARE : l´icona che al moneto non e´collegata !!!-->
 
 </head>
 
@@ -92,6 +112,24 @@
 	</header>
 
 		<div class = "hidden.sm login-app">
+			
+			<div class = "panel-body" id="forgot" >
+				<form method = "post">
+				<h2 class="panel-title"> Forgot the password? </h2>
+
+				<div class= "form-group">
+					<label class="control-label" for="forgotpassword">Please enter your E-Mail Adress or Username</label>
+					<br>
+					<br>
+					<input class= "form-control" type="email" name="email" placeholder="E-Mail / Username"/> 
+					<br>
+					<br>
+					<botton class="btn btn-primary btn-block" onclick="$('#forgot').hide();$('#sigIn').show();"> Close </botton>
+				</div>
+				</form>
+			</div>
+
+			<div class = "panel-body" id="signIn">
 			<form method = "post">
 				<h2 class="sr-only"> Login Form </h2>
 				<div class= "illustration">
@@ -109,16 +147,16 @@
                      </label>
                 </div>
 				<div class= "form-group"> 
-					<button class="btn btn-primary btn-block" type= "submit"> Sign In </buttom>
+					<button class="btn btn-primary btn-block" type= "submit"> Sign In </button>
 				</div>
-				<a class= "forgot" href="#"> Forgot your email or password?</a>
+				<a class= "forgot" href="#" onclick="$('#signIn').hide();$('forgot').show();"> Forgot your email or password?</a>
 			</form>
-		</div>
-		
-
-	
+			</div>
 
 			
+		</div>
+		
+		
 	<!-- Latest compiled and minified JavaScript -->
 
 <script src= "https://code.jquery.com/jquery-3.1.1.min.js"</script>
