@@ -22,9 +22,12 @@
     <script>
         $( document ).ready(function() {
             $('#register').show();
-            $('#aboutyou').hide();
-            $('#useage').hide();
+            $('#aboutyou').show();
+            $('#useage').show();
+            $('#showhandicapped').hide();
+            
         });
+
     </script>
 
 </head>
@@ -72,36 +75,116 @@
                             <h2 class="panel-title">About You</h3>
                         </div>
                         <div class="panel-body">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <label class="control-label" for="prename">Your prename</label>
-                                        <input id="prename" type="text" maxlength="50" class="form-control" placeholder="Prename">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label" for="prename">Your prename</label>
+                                    <input id="prename" type="text" maxlength="50" class="form-control" placeholder="Prename">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="surname">Your Surname</label>
+                                    <input id="surname" type="text" maxlength="50" class="form-control" placeholder="Surname">
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+                                    <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="Birthday">Your Birthday</label>
+                                    <input id="Birthday" type="date" maxlength="50" class="form-control" placeholder="Surname">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="Adress">Adress</label>
+                                    <input id="Adress" type="text" maxlength="50" class="form-control" placeholder="Adress">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="ZIP">Postcode</label>
+                                    <input id="ZIP" type="text" maxlength="50" class="form-control" placeholder="postcode">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="blood">Bloodgroup</label>
+                                    <div class="btn-group" id="blood">
+                                        <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+                                        <button class="btn btn-primary status">A</button>
+                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> 
+    </button>
+                                        <ul class="dropdown-menu dropdown-inverse">
+                                            <li><a onclick="$('.status').text(this.innerHTML);">0</a>
+                                            </li>
+                                            <li><a onclick="$('.status').text(this.innerHTML);">A</a>
+                                            </li>
+                                            <li><a onclick="$('.status').text(this.innerHTML);">B</a>
+                                            </li>
+                                            <li><a onclick="$('.status').text(this.innerHTML);">AB</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="surname">Your Surname</label>
-                                        <input id="surname" type="text" maxlength="50" class="form-control" placeholder="Surname">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="checkbox-inline"><input type="checkbox" value="" id="handicapped" onclick="$('#handicapped').is(':checked')==true ? $('#showhandicapped').show() : $('#showhandicapped').hide()">Are you handicapped?</label>
+                                </div>
+                                <div id="showhandicapped">
+                                    <div class="list-group">
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Autism</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Chronic Illness</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Hearing Loss and Deafness</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Intellectual Disability</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Learning Disability</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Memory Loss</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Mental Health</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Physical Disabilities</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Speech and Language Disorders</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Vision Loss and Blindness</h5>
+                                            <!--<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                                                varius blandit.</p>-->
+                                        </a>
+
                                     </div>
+
                                     <div class="form-group">
-                                        <label class="radio-inline"><input type="radio" name="optradio">Female</label>
-                                        <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+                                        <label for="disability">Additional information regarding disability</label>
+                                        <textarea class="form-control" rows="3" id="disability"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="Birthday">Your Birthday</label>
-                                        <input id="Birthday" type="date" maxlength="50" class="form-control" placeholder="Surname">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="Adress">Adress</label>
-                                        <input id="Adress" type="text" maxlength="50" class="form-control" placeholder="Adress">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="ZIP">Postcode</label>
-                                        <input id="ZIP" type="text" maxlength="50" class="form-control" placeholder="postcode">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="checkbox-inline"><input type="checkbox" value="">Are you handicapped?</label>
-                                    </div>
-                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Next" onclick="$('#aboutyou').hide();$('#useage').show();">
-                                </fieldset>
+                                </div>
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Next" onclick="$('#aboutyou').hide();$('#useage').show();">
+                            </fieldset>
                         </div>
                     </div>
 
@@ -135,6 +218,21 @@
                                     <div class="form-group">
                                         <label class="control-label" for="ZIP">Postcode</label>
                                         <input id="ZIP" type="text" maxlength="50" class="form-control" placeholder="postcode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="activate">How do you want activate your account</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="handy" value="option1" checked>
+    Handy Signature <img src="https://www.a1blog.net/wp-content/uploads/2014/01/handysignatur.png" width="40" />
+  </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Letter with Activation Code
+  </label>
+                                        </div>
                                     </div>
                                     <input class="btn btn-lg btn-success btn-block" type="submit" value="Register">
                                 </fieldset>
