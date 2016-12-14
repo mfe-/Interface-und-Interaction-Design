@@ -100,6 +100,10 @@
                                     <label class="control-label" for="ZIP">Postcode</label>
                                     <input id="ZIP" type="text" maxlength="50" class="form-control" placeholder="postcode">
                                 </div>
+                                 <div class="form-group">
+                                <label class="btn btn-default btn-file">
+    Upload your Profile Picture <input type="file" style="display: none;">
+</label>    </div>
                                 <div class="form-group">
                                     <label class="control-label" for="blood">Bloodgroup</label>
                                     <div class="btn-group" id="blood">
@@ -184,6 +188,7 @@
                                     </div>
                                 </div>
                                 <input class="btn btn-lg btn-success btn-block" type="submit" value="Next" onclick="$('#aboutyou').hide();$('#useage').show();">
+                                <input class="btn btn-lg btn-success btn-block" value="Back" onclick="$('#aboutyou').hide();$('#register').show();">
                             </fieldset>
                         </div>
                     </div>
@@ -193,7 +198,7 @@
                             <h2 class="panel-title">How you want to use H&amp;H</h3>
                         </div>
                         <div class="panel-body">
-                            <form accept-charset="UTF-8" role="form" action="activate.html">
+                            <form accept-charset="UTF-8" role="form" id="finalform" action="activate.html">
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="control-label" for="prename">Your prename</label>
@@ -224,17 +229,18 @@
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="optionsRadios" id="handy" value="option1" checked>
-    Handy Signature <img src="https://www.a1blog.net/wp-content/uploads/2014/01/handysignatur.png" width="40" />
+    Handy Signature <img src="https://www.a1blog.net/wp-content/uploads/2014/01/handysignatur.png" width="40" onclick="$('#finalform').attr('action', 'activate.html');" />
   </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" onclick="$('#finalform').attr('action', 'letter-sent.html');">
     Letter with Activation Code
   </label>
                                         </div>
                                     </div>
                                     <input class="btn btn-lg btn-success btn-block" type="submit" value="Register">
+                                     <input class="btn btn-lg btn-success btn-block" value="Back" onclick="$('#useage').hide();$('#aboutyou').show();">
                                 </fieldset>
                             </form>
                         </div>
