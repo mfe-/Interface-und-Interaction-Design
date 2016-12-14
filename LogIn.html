@@ -12,15 +12,18 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+		<link rel="stylesheet" href="Google-Style-Login.css"/>
+		<link rel="stylesheet" href="Login-Form-Clean.css"/>
 
 		<!-- Css input theme -->
 		<!-- chose the layout of the login theme -->
 		<!-- responsive design: chose the heigt,width in wich the image corrispond to the screen -->
+		<!-- Another immage : http://cdn.appstorm.net/iphone.appstorm.net/files/2010/06/iPhone-4-Abstract-Background-02-620x930.jpg-->
 
 		<style>
 			.login-app{
 				height: 1000px;
-				background:#fffdfb url("http://wfiles.brothersoft.com/i/iphone-4-red-background-01_6181-640x960.jpg");
+				background:#fffdfb url("https://wallpaperscraft.com/image/solid_red_bright_shiny_10745_640x1136.jpg");
 				min-height : 100%;
   				min-width : 100%;
 				background-size: 100% 100%;
@@ -33,23 +36,53 @@
 		.login-app form {
   				max-width:320px;
   				width:90%;
-  				background-color:#c0c0c0;
+  				background-color:#fafbed;
   				padding:40px;
- 			    border-radius:8px;
+ 			    border-radius:4px;
   				transform:translate(-50%, -50%);
   				position:absolute;
   				top:50%;
   				left:50%;
-  				color:#fff;
-  				box-shadow:8px 8px 9px rgba(0,0,0,0.2);
+  				color:#9d9d9d;
+  				box-shadow:5px 5px 7px rgba(0,0,0,0.2);
+			}
+
+		.login-app form .form-control {
+  				background:none;
+  				border:none;
+  				border-bottom:2px solid #574e6d;
+  				border-radius:0;
+  				box-shadow:none;
+  				outline:none;
+  				
 			}
 
 
+		.login-app .illustration {
+  				text-align:center;
+  				padding:0 0 120px;
+  				font-size:100px;
+			}
 
-
+	
+		.form-control:focus {
+  				border-color:#66afe9;
+  				outline:0;
+ 				-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  				box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+			}
+		.login-app form .btn-primary:hover, .login-app form .btn-primary:active {
+  				background:#7bcad1;
+  				outline:none;
+			}
+		.login-app form .forgot {
+  				display:block;
+  				text-align:center;
+  				font-size:12px;
+			}	
 
 		</style>
-
+<!-- DA FARE : sistemare i colori, sfondo e l´icona che al moneto non e´collegata !!!-->
 
 </head>
 
@@ -62,7 +95,7 @@
 			<form method = "post">
 				<h2 class="sr-only"> Login Form </h2>
 				<div class= "illustration">
-					<i class = "icon ion-ios-locked-outline"> </i>
+					<i class= "icon ion-ios-navigate"> </i>
 				</div>
 				<div class= "form-group">
 					<input class= "form-control" type="email" name="email" placeholder="Email Adress"/>
@@ -70,16 +103,15 @@
 				<div class= "form-group">
 					<input class= "form-control" type="password" name="password" placeholder="Password"/>
 				</div>
-				<div class= "form-group">
-					<input class= "form-control" type="confirm-password" name="confirm-password" placeholder="Confirm password"/>
-				</div>
+				<div class="checkbox">
+                    <label>
+                        <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                     </label>
+                </div>
 				<div class= "form-group"> 
-					<button class="btn btn-primary btn-block" type= "submit"> Log In </buttom>
+					<button class="btn btn-primary btn-block" type= "submit"> Sign In </buttom>
 				</div>
-				<a class= "forgot" href="#"> Forgot your email or password? </a>
-				<div>
-				<a href = "" class="btn btn-danger"> click here </a>
-				</div>
+				<a class= "forgot" href="#"> Forgot your email or password?</a>
 			</form>
 		</div>
 		
