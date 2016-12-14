@@ -19,13 +19,7 @@
 		<!-- chose the layout of the login theme -->
 		<!-- responsive design: chose the heigt,width in wich the image corrispond to the screen -->
 		<!-- Another immage : http://cdn.appstorm.net/iphone.appstorm.net/files/2010/06/iPhone-4-Abstract-Background-02-620x930.jpg-->
-		<script>
-        $( document ).ready(function() {
-            $('#register').show();
-            $('#aboutyou').hide();
-            $('#useage').hide();
-        });
-    	</script>
+
 		<style>
 			.login-app{
 				height: 1000px;
@@ -77,6 +71,7 @@
 				line-height: 9px;
   				margin-bottom:30px;
   				padding-top:10px;
+  				line-height: 100%;
   				text-align: center;
 			}
 
@@ -105,20 +100,25 @@
 			}	
 
 		</style>
-		
-		
 
-<!-- DA FARE : sistemare i colori, sfondo e l´icona che al moneto non e´collegata !!!-->
 
+		<script>
+        $( document ).ready(function() {
+            $('#register').show();
+            $('#aboutyou').hide();
+            $('#useage').hide();
+        });
+    	</script>
+		
 </head>
 
 <body>
 
 		<div class = "hidden.sm login-app">
-		 <div class="panel-body" id="register">
+			
+			<div class="panel-body" id="register">
 
 			<form method = "post">
-			
 				<h2 class="panel-title"> Register</h2>
 
 				<div class= "form-group">
@@ -144,14 +144,11 @@
 				</div>
 				<input class="btn btn-primary btn-block" type="button" value="Next" onclick="$('#register').hide();$('#aboutyou').show();">
 			</form>
-		</div>
+			</div>
 
-			<div class="panel-body" id="aboutyou">
+			<div class="panel-body" id="aboutyou" hidden>
 			<form method = "post">
-				
 				<h2 class="panel-title""> About You </h2>
-
-
 				<div class= "form-group">
 					<label class="control-label" for="signupName">Your Name</label>
 					<input class= "form-control" type="text" name="name" placeholder="Name"/>
@@ -186,17 +183,41 @@
                 </div>
 
 				<input class="btn btn-primary btn-block" type="button" value="Next" onclick="$('#aboutyou').hide();$('#useage').show();">
-
 			</form>
 			</div>
 
+			<div class="panel-body" id="useage" hidden>
+
+			<form method = "post">
+				<h2 class="panel-title"> How you want to use H and H</h2>
+
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Username</label>
+					<input class= "form-control" type="text" name="username" placeholder="Username"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Email Adress</label>
+					<input class= "form-control" type="email" name="email" placeholder="Email Adress"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Phonenumber</label>
+					<input class= "form-control" type="text" name="phonenumber" placeholder=" Prefix    Phonenumber"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Password</label>
+					<input class= "form-control" type="password" name="password" placeholder="Password"/>
+				</div>
+
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Confirm Password</label>
+					<input class= "form-control" type="password" name="password" placeholder="Confirm Password"/>
+				</div>
+				<input class="btn btn-primary btn-block" type="button" value="Next" onclick="$('#useage').hide();$('#register').show();">
+			</form>
+			</div>
 			
 		</div>
 		
-
-	
-
-			
 	<!-- Latest compiled and minified JavaScript -->
 
 <script src= "https://code.jquery.com/jquery-3.1.1.min.js"</script>
