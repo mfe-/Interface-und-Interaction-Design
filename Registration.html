@@ -1,0 +1,206 @@
+<!DOCTYPE htlm>
+<htlm lang = "de">
+
+<head> 
+		<meta charset="utf-8">
+		<title> Bootstrap for InfoDesign </title>
+		<meta name= "description" conten= "App">
+
+		<!-- Latest compiled and minified CSS -->		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="Google-Style-Login.css"/>
+		<link rel="stylesheet" href="Login-Form-Clean.css"/>
+
+		<!-- Css input theme -->
+		<!-- chose the layout of the login theme -->
+		<!-- responsive design: chose the heigt,width in wich the image corrispond to the screen -->
+		<!-- Another immage : http://cdn.appstorm.net/iphone.appstorm.net/files/2010/06/iPhone-4-Abstract-Background-02-620x930.jpg-->
+		<script>
+        $( document ).ready(function() {
+            $('#register').show();
+            $('#aboutyou').hide();
+            $('#useage').hide();
+        });
+    	</script>
+		<style>
+			.login-app{
+				height: 1000px;
+				background:#fffdfb url("https://wallpaperscraft.com/image/solid_red_bright_shiny_10745_640x1136.jpg");
+				min-height : 100%;
+  				min-width : 100%;
+				background-size: 100% 100%;
+				background-repeat:no-repeat;
+  				overflow-y: hidden;
+  				overflow-x: hidden;
+
+			}
+
+		.login-app form {
+  				max-width:320px;
+  				width:90%;
+  				background-color:#fafbed;
+  				padding:40px;
+ 			    border-radius:4px;
+  				transform:translate(-50%, -50%);
+  				position:absolute;
+  				top:50%;
+  				left:50%;
+  				color:#9d9d9d;
+  				box-shadow:5px 5px 7px rgba(0,0,0,0.2);
+			}
+
+
+		.login-app form .form-control {
+  				background:none;
+  				border:none;
+  				border-bottom:2px solid #574e6d;
+  				border-radius:0;
+  				box-shadow:none;
+  				outline:none;
+  				
+			}
+		.login-app form .control-label {
+  				background:none;
+  				border:none;
+  				box-shadow:none;
+  				outline:none;
+  				
+			}	
+		.login-app form .panel-title{
+				font-family: 'PT Sans Caption';
+				font-size: 25px; 
+				font-weight: 400;
+				line-height: 9px;
+  				margin-bottom:30px;
+  				padding-top:10px;
+  				text-align: center;
+			}
+
+
+		.login-app .illustration {
+  				text-align:center;
+  				padding:0 0 120px;
+  				font-size:100px;
+			}
+
+	
+		.form-control:focus {
+  				border-color:#66afe9;
+  				outline:0;
+ 				-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  				box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+			}
+		.login-app form .btn-primary:hover, .login-app form .btn-primary:active {
+  				background:#7bcad1;
+  				outline:none;
+			}
+		.login-app form .forgot {
+  				display:block;
+  				text-align:center;
+  				font-size:12px;
+			}	
+
+		</style>
+		
+		
+
+<!-- DA FARE : sistemare i colori, sfondo e l´icona che al moneto non e´collegata !!!-->
+
+</head>
+
+<body>
+
+		<div class = "hidden.sm login-app">
+		 <div class="panel-body" id="register">
+
+			<form method = "post">
+			
+				<h2 class="panel-title"> Register</h2>
+
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Username</label>
+					<input class= "form-control" type="text" name="username" placeholder="Username"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Email Adress</label>
+					<input class= "form-control" type="email" name="email" placeholder="Email Adress"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Phonenumber</label>
+					<input class= "form-control" type="text" name="phonenumber" placeholder=" Prefix    Phonenumber"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Password</label>
+					<input class= "form-control" type="password" name="password" placeholder="Password"/>
+				</div>
+
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Confirm Password</label>
+					<input class= "form-control" type="password" name="password" placeholder="Confirm Password"/>
+				</div>
+				<input class="btn btn-primary btn-block" type="button" value="Next" onclick="$('#register').hide();$('#aboutyou').show();">
+			</form>
+		</div>
+
+			<div class="panel-body" id="aboutyou">
+			<form method = "post">
+				
+				<h2 class="panel-title""> About You </h2>
+
+
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Name</label>
+					<input class= "form-control" type="text" name="name" placeholder="Name"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Surname</label>
+					<input class= "form-control" type="text" name="surname" placeholder="Surname"/>
+				</div>
+				 <div class="form-group">
+                    <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+                </div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Birthday</label>
+					<input class= "form-control" type="text" name="birthday" placeholder="Day / Month / Year"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Your Adress</label>
+					<input class= "form-control" type="text" name="adress" placeholder="Adress"/>
+				</div>
+
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Postcode</label>
+					<input class= "form-control" type="text" name="postcode" placeholder="Postcode"/>
+				</div>
+				<div class= "form-group">
+					<label class="control-label" for="signupName">Country</label>
+					<input class= "form-control" type="text" name="country" placeholder="Country"/>
+				</div>
+				<div class="form-group">
+                    <label class="checkbox-inline"><input type="checkbox" value="">Are you affected by disabilities Pathology?</label>
+                </div>
+
+				<input class="btn btn-primary btn-block" type="button" value="Next" onclick="$('#aboutyou').hide();$('#useage').show();">
+
+			</form>
+			</div>
+
+			
+		</div>
+		
+
+	
+
+			
+	<!-- Latest compiled and minified JavaScript -->
+
+<script src= "https://code.jquery.com/jquery-3.1.1.min.js"</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
