@@ -1,0 +1,211 @@
+<!doctype html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Profil</title>
+
+    <link rel="stylesheet" href="index.css">
+
+	
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+			changeReadOnlyEditAble();
+        });
+		
+		function changeReadOnlyEditAble()
+		{
+			if($("#EMail").is(':disabled'))
+			{
+				$("#EMail").prop('disabled', false);
+				$("#Phone").prop('disabled', false);
+				$("#prename").prop('disabled', false);
+				$("#Surname").prop('disabled', false);
+				$("#Birthday").prop('disabled', false);
+				$("#Adress").prop('disabled', false);
+				$("#ZIP").prop('disabled', false);
+				$("#handicapped").prop('disabled', false);
+				$("#disability").prop('disabled', false);
+				$("#bttchange").hide();
+				$("#pwdConfirm").show();
+				$("#bttsave").show();
+				$("#bttchangePic").show();
+				$("#bttcancel").show();
+
+			}
+			else
+			{
+				$("#EMail").prop('disabled', true);
+				$("#Phone").prop('disabled', true);
+				$("#prename").prop('disabled', true);
+				$("#Surname").prop('disabled', true);
+				$("#Birthday").prop('disabled', true);
+				$("#Adress").prop('disabled', true);
+				$("#ZIP").prop('disabled', true);
+				$("#handicapped").prop('disabled', true);
+				$("#disability").prop('disabled', true);
+				$("#bttchange").show();
+				$("#pwdConfirm").hide();
+				$("#bttsave").hide();
+				$("#bttchangePic").hide();
+				$("#bttcancel").hide();
+
+			}
+				
+		};
+   </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row vertical-offset-100">
+            <div class="col-md-4 col-md-offset-4">
+				<form accept-charset="UTF-8" role="form" action="dashboard.html">
+					<fieldset>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2 class="panel-title">My Profil</h3>
+							</div>
+							<div class="panel-heading">
+								<h3 class="panel-title">Base data</h3>
+							</div>	
+							<div class="panel-body">				
+								<div class="form-group">
+									<label for="EMail">E-Mail:</label>
+									<input id="EMail" type="text" class="form-control" name="EMail" placeholder="E-Mail" value="MaxMustermann@mail.com"/>
+								</div>
+								<div class="form-group">
+									<label for="Phone">Phonenumber:</label>
+									<input id="Phone" type="text" class="form-control" name="Phone" placeholder="Phonenumber" value="+43 6601234567"/>
+								</div>								
+																
+							</div>
+							<div class="panel-heading">
+								<h3 class="panel-title">About you</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="control-label" for="Pic">Profile picture:</label>
+									<div class="form-inline">
+										<img src="profilepic.png" alt="ProfilePic" height="90" width="90"/>
+										<button id="bttchangePic" type="button" class="btn btn-primary">change</button>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="prename">Prename:</label>
+									<input id="prename" type="text" class="form-control" name="prename" placeholder="Prename" value="Max"/>
+								</div>
+								<div class="form-group">
+									<label for="Surname">Surname:</label>
+									<input id="Surname" type="text" class="form-control" name="Surname" placeholder="Surname" value="Mustermann"/>
+								</div>					
+								<div class="form-group">
+                                    <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+                                    <label class="radio-inline"><input type="radio" name="optradio" checked="">Male</label>
+                                </div>
+								 <div class="form-group">
+                                    <label class="control-label" for="Birthday">Your Birthday</label>
+                                    <input id="Birthday" type="text" maxlength="50" class="form-control" placeholder="Birthday" value="1990-10-10">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="Adress">Adress</label>
+                                    <input id="Adress" type="text" maxlength="50" class="form-control" placeholder="Adress" value="Wien">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="ZIP">Postcode</label>
+                                    <input id="ZIP" type="text" maxlength="50" class="form-control" placeholder="postcode" value="1010">
+                                </div>
+								
+								<div class="form-group">
+                                    <label class="control-label" for="blood">Bloodgroup</label>
+                                    <div class="btn-group" id="blood">
+                                        <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+                                        <button class="btn btn-primary status">AB</button>
+                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></button>
+                                        <ul class="dropdown-menu dropdown-inverse">
+                                            <li><a onclick="$('.status').text(this.innerHTML);">0</a>
+                                            </li>
+                                            <li><a onclick="$('.status').text(this.innerHTML);">A</a>
+                                            </li>
+                                            <li><a onclick="$('.status').text(this.innerHTML);">B</a>
+                                            </li>
+                                            <li><a onclick="$('.status').text(this.innerHTML);">AB</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-inline"><input type="checkbox" value="" id="handicapped" checked="" onclick="$('#handicapped').is(':checked')==true ? $('#showhandicapped').show() : $('#showhandicapped').hide()">Are you handicapped?</label>
+                                </div>
+                                <div id="showhandicapped">
+                                    <div class="list-group">
+                                        <a class="list-group-item list-group-item-action active" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Autism</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Chronic Illness</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Hearing Loss and Deafness</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Intellectual Disability</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action active" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Learning Disability</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Memory Loss</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action active" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Mental Health</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Physical Disabilities</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Speech and Language Disorders</h5>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" onclick="$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')">
+                                            <h5 class="list-group-item-heading">Vision Loss and Blindness</h5>
+                                        </a>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="disability">Additional information regarding disability</label>
+                                        <textarea class="form-control" rows="3" id="disability"></textarea>
+                                    </div>
+                                </div>
+							</div>
+							<button id="bttchange" type="button" onclick="changeReadOnlyEditAble();" class="btn btn-info btn-lg btn-block">Change</button>
+							
+							<div class="panel-body" id="pwdConfirm">
+								<div class="form-group">
+									<label for="pwd">Confirm save:</label>
+									<input id="pwd" type="password" class="form-control" name="pwd" placeholder="Password"/>
+								</div>					
+								<button id="bttsave" type="button" class="btn btn-lg btn-success btn-block" onclick=" window.location.href='ProfileChangeSaved.html';">Save</button>
+							</div>
+							<button id="bttcancel" type="button" onclick="changeReadOnlyEditAble();" class="btn btn-lg btn-danger btn-block">Cancel</button>
+						</div>
+					</fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
