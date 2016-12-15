@@ -25,8 +25,53 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
     <script>
         $( document ).ready(function() {
-
+			
         });
+		
+		$(function() {
+
+		  $('#uppercats').on('change', function(){
+			fillLowercat(0);
+		  });
+		  $('#uppercat').on('change', function(){
+			fillLowercat(1);
+		  });
+		  
+		});
+		function fillLowercat(id)
+		{
+		
+			var up = "#uppercats";
+			var low = "#lowercats";
+			if(id==1)
+			{
+				up="#uppercat";
+				low = "#lowercat";
+			}
+			
+			$(low).find('option').remove().end().append('<option></option>').val('');
+			if( $(up+" option:selected").text() === "Botendienst")
+			{
+				$(low)
+				.append('<option>Lebensmittelbesorgung</option>')
+				.append('<option>Medikamentenbesorgung</option>')
+				.append('<option>Personentransport</option>')
+				.append('<option>Arztbesuch</option>')
+				.append('<option>Kleidungsbesorgung</option>')
+				.selectpicker('refresh');
+
+			}
+			else if( $(up+" option:selected").text() === "Hausdienst")
+			{
+				$(low)
+				.append('<option>Gl&uuml;hbirnen wechseln</option>')
+				.append('<option>Kochhilfe</option>')
+				.append('<option>Gehhilfe</option>')
+				.append('<option>Haushaltshilfe</option>')
+				.selectpicker('refresh');
+			}
+		}	
+		
     </script>
 
 </head>
@@ -53,8 +98,6 @@
 								<div class="form-group">
 									<label for="lowercat">Lower category:</label>
 									<select class="selectpicker" id="lowercat" data-style="btn-primary">
-										<option></option> 
-										<option>Hausdienst</option>
 									</select>                                
 								</div>
 								
@@ -82,6 +125,7 @@
                                 <div class="form-group">
 								<label for="uppercats">Upper category:</label>
 									<select class="selectpicker" id="uppercats" data-style="btn-primary">
+										<option></option> 
 										<option>Botendienst</option> 
 										<option>Hausdienst</option>
 									</select>                                
@@ -89,8 +133,6 @@
 								<div class="form-group">
 									<label for="lowercats">Lower category:</label>
 									<select class="selectpicker" id="lowercats" data-style="btn-primary">
-										<option></option> 
-										<option>Hausdienst</option>
 									</select>                                
 								</div>
 								<input class="btn btn-lg btn-success btn-block" type="submit" value="Search">
@@ -98,9 +140,9 @@
 								<div class="list-group">
 									<div>
 										<a href="#demo" data-toggle="collapse" class="list-group-item"> 
-										  <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-										  <p class="list-group-item-text">List Group Item Text</p>
-										  
+										  <h4 class="list-group-item-heading">[Username] - [Art des Request]</h4>
+										  <p class="list-group-item-text">Lebensmitteleink&auml;ufe zwischen dem 15.12.2016 bis 
+										  20.12.2016 erledigen in Umgebung Wien 1010</p>			
 										</a>
 										<div id="demo" class="collapse">
 											<input class="btn btn-success btn-block" type="submit" value="Accept">
@@ -108,14 +150,26 @@
 									</div>
 									<div>
 										<a href="#demo1" data-toggle="collapse" class="list-group-item"> 
-										  <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-										  <p class="list-group-item-text">List Group Item Text</p>
-										  
+										  <h4 class="list-group-item-heading">[Username] - [Art des Request]</h4>
+										  <p class="list-group-item-text">Biete an meinen Einkaufssamstag(17.12.2016) einen Botengang
+										  zu verschiedensten Gesch&auml;ften an. Die n&auml;chstgelegene Adresse ist die Apotheke Heilland. Falls sich die Zieladresse
+										  im Umkreis von 10 km Entfernung davon befindet, biete ich diese Dienstleistung gerne an.</p>
 										</a>
 										<div id="demo1" class="collapse">
 											<input class="btn  btn-success btn-block" type="submit" value="Accept">
 										</div>
-									</div>		
+									</div>
+									<div>
+										<a href="#demo" data-toggle="collapse" class="list-group-item"> 
+										  <h4 class="list-group-item-heading">[Username] - [Art des Request]</h4>
+										  <p class="list-group-item-text">Lebensmitteleink&auml;ufe zwischen dem 25.12.2016 bis 
+										  30.12.2016 erledigen in Umgebung Wien 1010</p>			
+										</a>
+										<div id="demo" class="collapse">
+											<input class="btn btn-success btn-block" type="submit" value="Accept">
+										</div>
+									</div>
+									
 								  </div>
                             </fieldset>
                         </form>
