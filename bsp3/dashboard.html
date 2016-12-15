@@ -26,7 +26,8 @@
                 var task = decodeURIComponent(myParam);
                 task = JSON.parse(task);
 
-                $("table#tbLooking_for_Assistance.table").append('<tr class="success"><td>' + task.uppercat + ' ' + task.lowercat + '</td><td>1010</td><td>Pending</td></tr>');
+                $("table#tbLooking_for_Assistance.table").append('<tr class="success"><td>' + task.uppercat + 
+                ' ' + task.lowercat + '</td><td>1010</td><td>Pending</td><td><a href="RequestRemove.html"><span class="glyphicon glyphicon-trash pull-right"></span></a></td></tr>');
 
             }
         });
