@@ -21,14 +21,16 @@
 
     <script>
         $(document).ready(function () {
-            var task = read_cookie("task-data");
+            var myParam = location.search.split('task=')[1];
+            if (myParam != undefined) {
+                var task = decodeURIComponent(myParam);
+                task = JSON.parse(task);
+
+                $("table#tbLooking_for_Assistance.table").append('<tr class="success"><td>' + task.uppercat + ' ' + task.lowercat + '</td><td>1010</td><td>Pending</td></tr>');
+
+            }
         });
 
-        function read_cookie(name) {
-            var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-            result && (result = JSON.parse(result[1]));
-            return result;
-        }
     </script>
 
 </head>
@@ -85,7 +87,7 @@
             <div class="container">
                 <h2>My current Requests</h2>
                 <p>I need Assistance with:</p>
-                <table class="table">
+                <table class="table" id="tbLooking_for_Assistance">
                     <thead>
                         <tr>
                             <th>Task Name</th>
