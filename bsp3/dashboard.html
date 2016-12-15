@@ -20,10 +20,15 @@
         crossorigin="anonymous"></script>
 
     <script>
-        $( document ).ready(function() {
-            console.log( "ready!" );
-            $('#Looking_for_Assistance').hide();
+        $(document).ready(function () {
+            var task = read_cookie("task-data");
         });
+
+        function read_cookie(name) {
+            var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+            result && (result = JSON.parse(result[1]));
+            return result;
+        }
     </script>
 
 </head>
@@ -38,32 +43,32 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <a class="navbar-brand" title="Help and Helpers" href="#">H&amp;H</a>
-                <a class="navbar-brand" href="#" onclick="$('#Looking_for_Assistance').show();">Looking for Assistance</a>
-                <a class="navbar-brand" href="#" onclick="$('#Offer_Assistance').show();">Offer Assistance</a>
+                <a class="navbar-brand" href="HelpRequest.html">Looking for Assistance</a>
+                <!--<a class="navbar-brand" href="#">Offer Assistance</a>-->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling       -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <!--  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
+                                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                                <li><a href="#">Link</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                            </ul> -->
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="login.html">Logout</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -73,19 +78,86 @@
 
     <!-- requests -->
 
-    <div class="panel panel-default" id="Offer_Assistance">
-        <div class="panel-heading">Current Requests</div>
+
+
+    <div class="panel-default" id="Looking_for_Assistance">
         <div class="panel-body">
-            Panel content blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blahblah
-            <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah
+            <div class="container">
+                <h2>My current Requests</h2>
+                <p>I need Assistance with:</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr class="success" id="MyRequest">
+                            <td>Success</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                            <td><span class="glyphicon glyphicon-trash pull-right"></span></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <div class="panel panel-default" id="Looking_for_Assistance">
-        <div class="panel-heading">Current Requests</div>
+    <div class="panel-default">
         <div class="panel-body">
-            Panel content blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blahblah
-            <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah <br/>blah
+            <div class="container">
+                <h2>Accepted Requests - I'm helping</h2>
+                <p>Accepted Requests I'm helping</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr class="success" id="AcceptedRequests">
+                            <td>Success</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                            <td><span class="glyphicon glyphicon-trash pull-right"></span></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-default">
+        <div class="panel-body">
+            <div class="container">
+                <h2>Open Requests</h2>
+                <p>These people are still looking for assistance</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr class="success" id="OpenRequest">
+                            <td>Success</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                            <td><span class="glyphicon glyphicon-trash pull-right"></span></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

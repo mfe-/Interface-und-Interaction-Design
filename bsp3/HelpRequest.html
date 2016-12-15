@@ -3,103 +3,124 @@
 <html lang="de">
 
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 
-    <title>Help Request</title>
+	<title>Help Request</title>
 
-    <link rel="stylesheet" href="index.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="index.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
-    <script>
-        $( document ).ready(function() {
-	
-        });
-		
-		$(function() {
+	<script>
+		$(document).ready(function () {
 
-		  $('#uppercats').on('change', function(){
-			fillLowercat(0);
-		  });
-		  $('#uppercat').on('change', function(){
-			fillLowercat(1);
-		  });
-		  
 		});
-		function fillLowercat(id)
-		{
-		
+
+		$(function () {
+
+			$('#uppercats').on('change', function () {
+				fillLowercat(0);
+			});
+			$('#uppercat').on('change', function () {
+				fillLowercat(1);
+			});
+
+		});
+		function fillLowercat(id) {
+
 			var up = "#uppercats";
 			var low = "#lowercats";
-			if(id==1)
-			{
-				up="#uppercat";
+			if (id == 1) {
+				up = "#uppercat";
 				low = "#lowercat";
 			}
-			
+
 			$(low).find('option').remove().end().append('<option></option>').val('');
-			if( $(up+" option:selected").text() === "Botendienst")
-			{
+			if ($(up + " option:selected").text() === "Botendienst") {
 				$(low)
-				.append('<option>Lebensmittelbesorgung</option>')
-				.append('<option>Medikamentenbesorgung</option>')
-				.append('<option>Personentransport</option>')
-				.append('<option>Arztbesuch</option>')
-				.append('<option>Kleidungsbesorgung</option>')
-				.selectpicker('refresh');
+					.append('<option>Lebensmittelbesorgung</option>')
+					.append('<option>Medikamentenbesorgung</option>')
+					.append('<option>Personentransport</option>')
+					.append('<option>Arztbesuch</option>')
+					.append('<option>Kleidungsbesorgung</option>')
+					.selectpicker('refresh');
 
 			}
-			else if( $(up+" option:selected").text() === "Hausdienst")
-			{
+			else if ($(up + " option:selected").text() === "Hausdienst") {
 				$(low)
-				.append('<option>Gl&uuml;hbirnen wechseln</option>')
-				.append('<option>Kochhilfe</option>')
-				.append('<option>Gehhilfe</option>')
-				.append('<option>Haushaltshilfe</option>')
-				.selectpicker('refresh');
+					.append('<option>Gl&uuml;hbirnen wechseln</option>')
+					.append('<option>Kochhilfe</option>')
+					.append('<option>Gehhilfe</option>')
+					.append('<option>Haushaltshilfe</option>')
+					.selectpicker('refresh');
 			}
-		}	
-		
-    </script>
+		}
+		function bake_cookie(name, value) {
+			var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+			document.cookie = cookie;
+		}
+		function read_cookie(name) {
+			var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+			result && (result = JSON.parse(result[1]));
+			return result;
+		}
+		function createtask() {
+			var task =
+				{
+					uppercat: $("#uppercat").find(":selected").text(),
+					lowercat: $("#lowercat").find(":selected").text(),
+					fromtime: $("input#from_time.form-control").val(),
+					fromdate: $("input#from_date.form-control").val(),
+					totime: $("input#to_time.form-control").val(),
+					notes: $("#desc").val()
+				};
+			bake_cookie("task-data", task);
+
+			var temp = read_cookie("task-data");
+
+			window.location.href = 'dashboard.html';
+		}
+
+	</script>
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="row vertical-offset-100">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Create Request</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form">
-                            <fieldset>
-							
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Create Request</h3>
+					</div>
+					<div class="panel-body">
+						<form accept-charset="UTF-8" role="form">
+							<fieldset>
+
 								<div class="form-group">
 									<label for="template">Template:</label>
 									<select class="selectpicker form-control" id="template" data-style="btn-primary">
 										<option></option> 
-									</select>                                
+									</select>
 								</div>
-                                <div class="form-group">
-								<label for="uppercat">Upper category:</label>
+								<div class="form-group">
+									<label for="uppercat">Upper category:</label>
 									<select class="selectpicker form-control" id="uppercat" data-style="btn-primary">
 										<option>Botendienst</option> 
 										<option>Hausdienst</option>
-									</select>                                
+									</select>
 								</div>
 								<div class="form-group">
 									<label for="lowercat">Lower category:</label>
@@ -109,122 +130,57 @@
 										<option>Personentransport</option>
 										<option>Arztbesuch</option>
 										<option>Kleidungsbesorgung</option>
-									</select>                                
+									</select>
 								</div>
-								
+
 								<div class="form-group">
 									<h3>Help Location:</h3>
 									<input type="radio" name="optradio" checked="">Current Location</label><br/>
-                                    <input type="radio" name="optradio" >Other Location</label>
+									<input type="radio" name="optradio">Other Location</label>
 								</div>
 								<div class="form-group">
-									<img src="maps.PNG" alt="Map" height="250" width="250"/>								
+									<img src="maps.PNG" alt="Map" height="250" />
 								</div>
 								<div class="form-group">
 									<h3>Help time range</h3>
-									<label for="vondate">From:</label>
-									<div class='input-group date' id='datetimepicker6'>
-										<input id="vondate" type='text' class="form-control" />
+									<label for="from_date">From (Date):</label>
+									<div class='input-group date' id='from_date'>
+										<input id="from_date" type='text' class="form-control" placeholder="dd.mm.yyyy" />
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-calendar"></span>
 										</span>
 									</div>
-									<label for="bisdate">Until:</label>
-									 <div class='input-group date' id='datetimepicker7'>
-										<input id="bisdate" type='text' class="form-control" />
+									<label for="from_time">From (Time):</label>
+									<div class='input-group date' id='from_time'>
+										<input id="from_time" type='text' class="form-control" placeholder="mm:hh" />
 										<span class="input-group-addon">
-											<span class="glyphicon glyphicon-calendar"></span>
+											<span class="glyphicon glyphicon-time"></span>
+										</span>
+									</div>
+									<label for="to_time">Until (Time):</label>
+									<div class='input-group date' id='to_time'>
+										<input id="to_time" type='text' class="form-control" placeholder="mm:hh" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-time"></span>
 										</span>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="duration">Duration:</label>
-									<select class="selectpicker form-control" id="duration" data-style="btn-primary">
-										<option></option> 
-										<option>Each Week</option>
-										<option>Each Month</option>
-										<option>Each Year</option>
-									</select>                                
-								</div>
-                                <div class="form-group">
 									<label for="desc">Notes:</label>
 									<textarea class="form-control" rows="4" id="desc"></textarea>
-                                </div>
+								</div>
 								<button type="button" class="btn btn-lg btn-info btn-block" onclick="window.location.href='HelpRequestSaveTemplate.html';">Save as Template </button>
-                                <button type="button" class="btn btn-lg btn-success btn-block" onclick="window.location.href='MyRequest.html';">Submit</button>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<button type="button" class="btn btn-lg btn-success btn-block" onclick="createtask()">Submit</button>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>
 
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Search Request</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form" action="register.html">
-                            <fieldset>
-                                <div class="form-group">
-								<label for="uppercats">Upper category:</label>
-									<select class="selectpicker" id="uppercats" data-style="btn-primary">
-										<option></option> 
-										<option>Botendienst</option> 
-										<option>Hausdienst</option>
-									</select>                                
-								</div>
-								<div class="form-group">
-									<label for="lowercats">Lower category:</label>
-									<select class="selectpicker" id="lowercats" data-style="btn-primary">
-									</select>                                
-								</div>
-								<input class="btn btn-lg btn-success btn-block" type="submit" value="Search">
-								<br/>
-								<div class="list-group">
-									<div>
-										<a href="#demo" data-toggle="collapse" class="list-group-item"> 
-										  <h4 class="list-group-item-heading">[Username] - [Art des Request]</h4>
-										  <p class="list-group-item-text">Lebensmitteleink&auml;ufe zwischen dem 15.12.2016 bis 
-										  20.12.2016 erledigen in Umgebung Wien 1010</p>			
-										</a>
-										<div id="demo" class="collapse">
-											<input class="btn btn-success btn-block" type="submit" value="Accept">
-										</div>
-									</div>
-									<div>
-										<a href="#demo1" data-toggle="collapse" class="list-group-item"> 
-										  <h4 class="list-group-item-heading">[Username] - [Art des Request]</h4>
-										  <p class="list-group-item-text">Biete an meinen Einkaufssamstag(17.12.2016) einen Botengang
-										  zu verschiedensten Gesch&auml;ften an. Die n&auml;chstgelegene Adresse ist die Apotheke Heilland. Falls sich die Zieladresse
-										  im Umkreis von 10 km Entfernung davon befindet, biete ich diese Dienstleistung gerne an.</p>
-										</a>
-										<div id="demo1" class="collapse">
-											<input class="btn  btn-success btn-block" type="submit" value="Accept">
-										</div>
-									</div>
-									<div>
-										<a href="#demo" data-toggle="collapse" class="list-group-item"> 
-										  <h4 class="list-group-item-heading">[Username] - [Art des Request]</h4>
-										  <p class="list-group-item-text">Lebensmitteleink&auml;ufe zwischen dem 25.12.2016 bis 
-										  30.12.2016 erledigen in Umgebung Wien 1010</p>			
-										</a>
-										<div id="demo" class="collapse">
-											<input class="btn btn-success btn-block" type="submit" value="Accept">
-										</div>
-									</div>
-									
-								  </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </div>
+
+</div>
 </body>
 
 </html>
