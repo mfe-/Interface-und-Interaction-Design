@@ -156,11 +156,11 @@
 								</div>
 								<div class="form-group">
 									<label for="desc">Notes:</label>
-									<textarea class="form-control" rows="4" id="desc"></textarea>
+									<textarea class="form-control" rows="4" id="desc" title="Add here some additional information about the request."></textarea>
 								</div>
-								<button type="button" class="btn btn-lg btn-info btn-block" onclick="window.location.href='HelpRequestSaveTemplate.html';">Save as Template </button>
-<button type="button" class="btn btn-lg btn-success btn-block" onclick="createtask()">Submit</button>
-<button type="button" class="btn btn-lg btn-danger btn-block" onclick="window.location.href='dashboard.html';">Cancel</button>
+								<button type="button" class="btn btn-lg btn-info btn-block" onclick="window.location.href='HelpRequestSaveTemplate.html';" title="Save the current values of the form. So you can reuse it next time when creating a new help request.">Save as Template </button>
+<button type="button" class="btn btn-lg btn-success btn-block" onclick="createtask()" title="When submitting the help request, other people can see your request. When somebody wants to help you, you will be notified.">Submit</button>
+<button type="button" class="btn btn-lg btn-danger btn-block" onclick="window.location.href='dashboard.html';" title="abort the current help request">Cancel</button>
 </fieldset>
 </form>
 </div>
