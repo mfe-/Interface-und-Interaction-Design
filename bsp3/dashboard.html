@@ -33,11 +33,17 @@
                 //simulate a user which Accepted our task
                 setTimeout(showAcceptedRequest, 3000);
             }
+            //make open request table rows clickable
+            $('table#tbneedassistance > tbody > tr').click(function (data) {
+                showClickedTask(data)
+
+            });
+
         });
 
         function addTask(task) {
             $("table#tbLooking_for_Assistance.table").append('<tr class="info"><td>' + task.uppercat +
-                ' ' + task.lowercat + '</td><td>1010</td><td class="status">Pending (Waiting for Helpers)</td><td class="complete"></td><td><a href="RequestRemove.html"><span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span></a></td></tr>');
+                ' ' + task.lowercat + '</td><td>1010</td><td>' + task.fromdate + ' ' + task.fromtime + '</td><td class="status">Pending (Waiting for Helpers)</td><td class="complete"></td><td><a href="RequestRemove.html"><span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span></a></td></tr>');
         }
         function showAcceptedRequest() {
             var taskname = $("table#tbLooking_for_Assistance.table tr.info td").first().text();
@@ -52,6 +58,53 @@
             tr.addClass("success ");
             $("table#tbLooking_for_Assistance.table tr.success td.status").html('Accepted - Max M. is helping');
             $("table#tbLooking_for_Assistance.table tr.success td.complete").html('<a href="RateRequest.html" title="When the task is done, click here to complete it.">Click to complete</a>');
+        }
+        function showClickedTask(tr) {
+            var username = $(tr.currentTarget).find("td.user").first().text();
+            var taskname = $(tr.currentTarget).find("td").first().text();
+            //prepare headline
+            $("#myModalAreYouSure").find("h4").empty();
+            $("#myModalAreYouSure").find("h4").append("Are you sure you want help <p>" + username + " with " + taskname + "?</p>");
+
+            $("#myModalAreYouSure .modal-body p.taskname").empty();
+            $("#myModalAreYouSure .modal-body p.taskname").append("Taskname: " + taskname);
+
+            var location = $(tr.currentTarget).find("td.location").first().text();
+            $("#myModalAreYouSure .modal-body p.location").empty();
+            $("#myModalAreYouSure .modal-body p.location").append("Location: " + location + ' Untere Donaustraße 39/1/9<p><img src="maps.png" height="100" /></p>');
+
+            var from = $(tr.currentTarget).find("td.time").first().text();
+            $("#myModalAreYouSure .modal-body p.from").empty();
+            $("#myModalAreYouSure .modal-body p.from").append("Time: " + from);
+
+            $("#myModalAreYouSure .modal-body p.notes").empty();
+            $("#myModalAreYouSure .modal-body p.notes").append("Notes: -");
+
+            $("#myModalAreYouSure button.btn.btn-default.btn-success").unbind("click");
+            //on Open Requests click add item
+            $("#myModalAreYouSure button.btn.btn-default.btn-success").click(function () {
+                showClickedTaskOkBtn(tr);
+            });
+
+            $('#myModalAreYouSure').modal('toggle');
+            $('#myModalAreYouSure').modal('show');
+        }
+        function showClickedTaskOkBtn(data) {
+            //<td class="complete"></td>
+            //get clicked item
+            var tr = $(data.currentTarget).clone();
+            //remove from open request
+            data.currentTarget.remove();
+
+            $(tr).removeClass("info");
+            $(tr).addClass("success ");
+            $(tr).css("cursor", "");
+
+            $(tr).find("td.status").html('Accepted - You help');
+            $(tr).find("td.user").html('<a href="RateRequest.html" title="When the task is done, click here to complete it.">Click to complete</a>');
+            $(tr).find("td.trash").html('<a href="RequestRemove.html"><span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span></a>');
+            //add to accepted requests im helping
+            $("table#imhelp.table").append(tr);
         }
 
     </script>
@@ -114,14 +167,16 @@
                     <colgroup>
                         <col width="30%">
                         <col width="10%">
+                        <col width="10%">
                         <col width="20%">
-                        <col width="30%">
+                        <col width="10%">
                         <col width="10%">
                     </colgroup>
                     <thead>
                         <tr>
                             <th>Task Name</th>
                             <th>Location</th>
+                            <th>Time</th>
                             <th>Status</th>
                             <th>Complete</th>
                             <th></th>
@@ -145,18 +200,20 @@
             <div class="container">
                 <h2>Accepted Requests - I'm helping</h2>
                 <p>Accepted Requests I'm helping</p>
-                <table class="table">
+                <table class="table" id="imhelp">
                     <colgroup>
                         <col width="30%">
                         <col width="10%">
+                        <col width="10%">
                         <col width="20%">
-                        <col width="30%">
+                        <col width="10%">
                         <col width="10%">
                     </colgroup>
                     <thead>
                         <tr>
                             <th>Task Name</th>
                             <th>Location</th>
+                            <th>Time</th>
                             <th>Status</th>
                             <th>Complete</th>
                             <th></th>
@@ -180,97 +237,139 @@
             <div class="container">
                 <h2>Open Requests</h2>
                 <p>These people are still looking for assistance</p>
-                <table class="table">
+                <table class="table" id="tbneedassistance">
                     <colgroup>
                         <col width="30%">
                         <col width="10%">
+                        <col width="10%">
                         <col width="20%">
-                        <col width="30%">
+                        <col width="10%">
                         <col width="10%">
                     </colgroup>
                     <thead>
                         <tr>
                             <th>Task Name</th>
                             <th>Location</th>
+                            <th>Time</th>
                             <th>Status</th>
                             <th>User</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="info">
-                            <td>Hausdienst Glühbirnen wechseln</td>
-                            <td>1030</td>
-                            <td class="status">Pending (Waiting for Helpers)</td>
-                            <td class="user">John Doe</td>
-                            <td>
-                                <!--<a href="RequestRemove.html">
+                        <tr class="info" style="cursor: pointer;">
+<td>Hausdienst Glühbirnen wechseln</td>
+<td class="location">1030</td>
+<td class="time">12.13.16 09:20</td>
+<td class="status">Pending (Waiting for Helpers)</td>
+<td class="user">John Doe</td>
+<td class="trash">
+    <!--<a href="RequestRemove.html">
                                     <span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span>
                                 </a>-->
-                            </td>
-                        </tr>
-                        <tr class="info">
-                            <td>Hausdienst Kochhilfe</td>
-                            <td>1030</td>
-                            <td class="status">Pending (Waiting for Helpers)</td>
-                            <td class="user">Will Barrow</td>
-                            <td>
-                                <!--<a href="RequestRemove.html">
+</td>
+</tr>
+<tr class="info" style="cursor: pointer;">
+<td>Hausdienst Kochhilfe</td>
+<td class="location">1030</td>
+<td class="time">12.14.16 08:40</td>
+<td class="status">Pending (Waiting for Helpers)</td>
+<td class="user">Will Barrow</td>
+<td class="trash">
+    <!--<a href="RequestRemove.html">
                                     <span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span>
                                 </a>-->
-                            </td>
-                        </tr>
-                        <tr class="info">
-                            <td>Hausdienst Haushalshilfe</td>
-                            <td>1030</td>
-                            <td class="status">Pending (Waiting for Helpers)</td>
-                            <td class="user">Sue Shei</td>
-                            <td>
-                                <!--<a href="RequestRemove.html">
+</td>
+</tr>
+<tr class="info" style="cursor: pointer;">
+<td>Hausdienst Haushalshilfe</td>
+<td class="location">1030</td>
+<td class="time">12.15.16 15:21</td>
+<td class="status">Pending (Waiting for Helpers)</td>
+<td class="user">Sue Shei</td>
+<td class="trash">
+    <!--<a href="RequestRemove.html">
                                     <span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span>
                                 </a>-->
-                            </td>
-                        </tr>
-                        <tr class="info">
-                            <td>Botendienst Lebensmittelbesorgung</td>
-                            <td>1030</td>
-                            <td class="status">Pending (Waiting for Helpers)</td>
-                            <td class="user">Brian Cumin</td>
-                            <td>
-                                <!--<a href="RequestRemove.html">
+</td>
+</tr>
+<tr class="info" style="cursor: pointer;">
+<td>Botendienst Lebensmittelbesorgung</td>
+<td class="location">1030</td>
+<td class="time">12.12.16 14:20</td>
+<td class="status">Pending (Waiting for Helpers)</td>
+<td class="user">Brian Cumin</td>
+<td class="trash">
+    <!--<a href="RequestRemove.html">
                                     <span class="glyphicon glyphicon-trash pull-right" title="Click here to remove Task"></span>
                                 </a>-->
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">User Max Mustermann is helping you!</h4>
+            </div>
+            <div class="modal-body">
+                <p>The user Max Mustermann wants to help you with </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-success" data-dismiss="modal" onclick="changeSatusTask();">Ok</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Modal -->
+<div id="myModalAreYouSure" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Are you sure you want help </h4>
+            </div>
+            <div class="modal-body">
+                <h3>Details</h3>
+                <p class="taskname">Taskname:</p>
+                <p class="location">Location:</p>
+                <p class="from">From:</p>
+                <p class="notes">Notes:</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-success" data-dismiss="modal">Accept</button>
+                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Abort</button>
             </div>
         </div>
+
     </div>
-
-
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">User Max Mustermann is helping you!</h4>
-                </div>
-                <div class="modal-body">
-                    <p>The user Max Mustermann wants to help you with </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-success" data-dismiss="modal" onclick="changeSatusTask();">Ok</button>
-</div>
 </div>
 
+<!-- footer -->
+<div class="navbar navbar-default navbar-bottom">
+    <div class="container">
+        <p class="navbar-text pull-left">© 2016 - Site Built By H&amp;H
+            <a target="_blank">Questions? Problems with the Site? Write us!</a>
+        </p>
+<!--
+        <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
+            <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>-->
+    </div>
 </div>
-</div>
-
-
 </body>
 
 </html>
