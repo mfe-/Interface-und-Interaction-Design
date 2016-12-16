@@ -57,7 +57,7 @@
             tr.removeClass("info");
             tr.addClass("success ");
             $("table#tbLooking_for_Assistance.table tr.success td.status").html('Accepted - Max M. is helping');
-            $("table#tbLooking_for_Assistance.table tr.success td.complete").html('<a href="RateRequest.html" title="When the task is done, click here to complete it.">Click to complete</a>');
+            $("table#tbLooking_for_Assistance.table tr.success td.complete").html('<a href="RateRequest.html" title="When the task is done, click here to complete and rate it.">Click to complete</a>');
         }
         function showClickedTask(tr) {
             var username = $(tr.currentTarget).find("td.user").first().text();
@@ -120,8 +120,8 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" title="Help and Helpers" href="#">H&amp;H</a>
-                <a class="navbar-brand" title="Create a new Request" href="HelpRequest.html">Looking for Assistance</a>
+                <a class="navbar-brand" title="a Platform for Help and Helpers" href="dashboard.html">H&amp;H</a>
+                <a class="navbar-brand" title="Create a new help Request" href="HelpRequest.html">Looking for Assistance</a>
                 <!--<a class="navbar-brand" href="#">Offer Assistance</a>-->
             </div>
 
@@ -146,7 +146,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a title="Change or look at Profile" href="Profile.html">Profile</a></li>
-                    <li><a href="login.html">Logout</a></li>
+                    <li><a title="sign out of the system." href="login.html">Logout</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -365,9 +365,8 @@
         <p class="navbar-text pull-left">© 2016 - Site Built By H&amp;H
             <a href="contact.html" target="_blank">Questions? Problems with the Site? Write us!</a>
         </p>
-<!--
-        <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
-            <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>-->
+
+        <a href="#" class="navbar-btn btn pull-right">Impressum</a>
     </div>
 </div>
 </body>
