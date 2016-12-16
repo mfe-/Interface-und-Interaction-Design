@@ -1,3 +1,11 @@
+<h1>Infos zur Abgabe</h1>
+
+Die App wurde in Google Chrome getestet. Die App ist für Mobilgeräte (Tablet/Handies) erstellt. Es wurde einerseits die Seite als "Desktop Version" getestet und andererseits mit Google Chrome IPhone 5 (Entwicklertools->Toogle Device)
+
+Die App kann über login.html "gestartet" werden.
+
+Wenn Sie sich registrieren muss man den Account einer realen Person zuordnen können. Dies wurde mittels, Handysignatur (Drittanbieter - deshalb auch die Screenshots) oder Wohnadressbestätigung mit einem Brief der einen Aktivierungscode enthält, erreicht.
+
 <h1>Requirements Analysis</h1>
 
 Im Rahmen dieses Beispiels ist es Ihre Aufgabe, ein Online-Tool zu designen, welches von Privatpersonen genutzt werden kann um persönliche Ressourcen mit anderen Menschen
