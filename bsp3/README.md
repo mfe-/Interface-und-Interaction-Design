@@ -4,7 +4,19 @@ Die App wurde in Google Chrome getestet. Die App ist für Mobilgeräte (Tablet/H
 
 Die App kann über login.html "gestartet" werden.
 
-Wenn Sie sich registrieren muss man den Account einer realen Person zuordnen können. Dies wurde mittels, Handysignatur (Drittanbieter - deshalb auch die Screenshots) oder Wohnadressbestätigung mit einem Brief der einen Aktivierungscode enthält, erreicht.
+Wenn man sich registrieren muss man den Account einer realen Person zuordnen können. Dies wurde mittels, Handysignatur (Drittanbieter - deshalb auch die Screenshots) oder Wohnadressbestätigung mit einem Brief der einen Aktivierungscode enthält, erreicht.
+
+Beim Dashboard wurde so gut es möglich war Userinteraktionen anderer Benutzer zu simulieren.
+
+Wenn man Beispielsweise auf dem Dashboard einen "Need assistance Request" anlegt wird nach einigen Sekunden ein neues Dialogfenster geöffnet mit der Info, dass der Benutzer Max Musterman uns bei unserer Anfrage helfen möchte.
+
+Anschließend hat man auch die Möglichkeit den Hilferequest zu schließen. Das macht man im Normalfall wenn der Hilfsgebende auch die Hilfegeleistet hat. Danach kann gereviewed werden.
+
+Umgekehrt sehen wir im Dashboard auch die Hilfsanfragen anderer Benutzer. Wir können durch klicken auf die jeweilige Anfrage diese nochmal reviewen und akzeptieren.
+
+Auch hier gilt, den Hilfsrequest zu schließen macht erst Sinn, wenn man die Hilfe abgeleistet hat.
+
+Wechselt man vom Dashboard auf eine andere Seite z.b. rate/remove, geht der aktuelle state vom Dashboard verloren. Das liegt daran, dass die Funktionalität vom prototyp beschränkt ist.
 
 <h1>Requirements Analysis</h1>
 
