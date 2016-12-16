@@ -6,7 +6,7 @@ Die App kann über login.html "gestartet" werden.
 
 Wenn man sich registrieren muss man den Account einer realen Person zuordnen können. Dies wurde mittels, Handysignatur (Drittanbieter - deshalb auch die Screenshots) oder Wohnadressbestätigung mit einem Brief der einen Aktivierungscode enthält, erreicht.
 
-Beim Dashboard wurde so gut es möglich war Userinteraktionen anderer Benutzer zu simulieren.
+Beim Dashboard wurde so gut es möglich war Userinteraktionen anderer Benutzer simuliert.
 
 Wenn man Beispielsweise auf dem Dashboard einen "Need assistance Request" anlegt wird nach einigen Sekunden ein neues Dialogfenster geöffnet mit der Info, dass der Benutzer Max Musterman uns bei unserer Anfrage helfen möchte.
 
