@@ -13,6 +13,7 @@ useage: font-family: 'PT Sans Caption', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
 html {
     font-family: 'Quattrocento Sans', sans-serif;
+    background: #CEECF5;
 }
 
 h1 {
